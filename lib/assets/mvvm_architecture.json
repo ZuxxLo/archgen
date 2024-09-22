@@ -1,0 +1,34 @@
+{
+    "core": {
+        "api": {
+          "api_links.dart": "// This is a generated file\n\nabstract class ApiLinks {\n   static const String linkServerName = 'http://  : '; // Add the apis here\n}\n",
+          "api_service.dart": "// This is a generated file\n// It uses the Dio package for HTTP requests.\n// Ensure Dio is included in your project dependencies\n\nimport 'dart:io';\nimport 'package:dio/dio.dart';\n\nclass ApiService {\n  final Dio _dio;\n\n  ApiService(this._dio);\n\n  Future<Map<String, dynamic>> get({\n    required String endPoint,\n    String? accessToken,\n  }) async {\n    Map<String, dynamic> headers = {};\n\n    if (accessToken != null) {\n      headers['Authorization'] = 'Bearer \\$accessToken';\n    }\n\n    var response = await _dio.get(\n      endPoint,\n      options: Options(headers: headers),\n    );\n\n    return response.data;\n  }\n\n  Future<Map<String, dynamic>> post({\n    required String endPoint,\n    required Map<String, dynamic> data,\n    File? file,\n    String? fileName,\n    String? accessToken,\n  }) async {\n    Map<String, dynamic> headers = {\n      'Content-type': 'application/json',\n      'Accept': 'application/json',\n    };\n\n    if (accessToken != null) {\n      headers['Authorization'] = 'Bearer \\$accessToken';\n    }\n\n    FormData formData = FormData.fromMap(data);\n\n    if (file != null) {\n      formData.files.add(\n        MapEntry(\n          'file',\n          await MultipartFile.fromFile(\n            file.path,\n            filename: fileName,\n          ),\n        ),\n      );\n    }\n\n    var response = await _dio.post(\n      endPoint,\n      data: formData,\n      options: Options(\n        headers: headers,\n      ),\n    );\n\n    return response.data;\n  }\n}"
+        },
+        "utils": {
+          "helper": {},
+          "router": {
+            "router.dart": "",
+            "route_names.dart": "// This is a generated file\n\nabstract class RouteNames {\n // Add your route names here\n  static const String home = 'home';\n}\n"
+          }
+        },
+        "errors": {},
+        "theme.dart": "",
+        "assets.dart": "",
+        "colors.dart": "",
+        "other_constants.dart": "",
+        "text_styles.dart": "// This is a generated file\nimport 'package:flutter/material.dart';\n\nabstract class TextStyles {\n // Add text styles here\n}\n"
+      },
+    "features": {
+        "feature_name": {
+            "model": {
+                "model.dart": "// This is a generated file\n// Model class for feature_name\nclass feature_nameModel {\n  // Add properties here\n}"
+            },
+            "view": {
+                "view.dart": "// This is a generated file\n// View class for feature_name\nimport 'package:flutter/material.dart';\n\nclass feature_nameView extends StatelessWidget {\n  const feature_nameView({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Placeholder();\n  }\n}"
+            },
+            "view_model": {
+                "view_model.dart": "// This is a generated file\n// ViewModel class for the feature\nimport 'package:flutter/material.dart';\n\nclass feature_nameViewModel extends ChangeNotifier {\n  // Add properties and logic here\n  void updateData() {\n    // Example logic\n    notifyListeners();\n  }\n}"
+            }
+        }
+    }
+}

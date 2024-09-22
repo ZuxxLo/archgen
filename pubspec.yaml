@@ -1,0 +1,21 @@
+name: archgen
+version: 0.1.0
+description: A CLI tool for generating clean project structures based on default, MVC, MVVM, or custom architectures.
+homepage: "https://nassim-fellah.vercel.app/"
+repository: https://github.com/ZuxxLo/archgen
+
+environment:
+  sdk: '>=2.16.0 <3.0.0'
+
+dependencies:
+  args: ^2.3.0
+ 
+
+dev_dependencies:
+  test: ^1.21.4
+
+# executables:
+#   archgen: bin/create_structure.dart
+flutter:
+  assets:
+    - packages/archgen/data/
