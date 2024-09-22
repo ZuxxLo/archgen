@@ -76,6 +76,7 @@ To create a custom architecture, you can provide your own JSON configuration fil
                 "view.dart": ""
             }
     }
+  }
 }
 ```
 
