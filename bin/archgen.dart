@@ -150,6 +150,15 @@ void createArchitectureWithFeatureName(
           print('File already exists: $filePath');
         }
       }
+    } else if (value is Map) {
+      // Handle empty maps (create empty directories)
+      if (!Directory(path).existsSync()) {
+        Directory(path).createSync(recursive: true);
+        print('Created directory: $path');
+      }
+      // Recursively call to handle any nested structures
+      createArchitectureWithFeatureName(
+          value.cast<String, dynamic>(), featureName, path);
     }
   });
 }
