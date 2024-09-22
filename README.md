@@ -17,7 +17,7 @@ ArchGen is a command-line interface (CLI) tool that simplifies the process of cr
 To use ArchGen, ensure you have Dart SDK installed. Then, you can install it via:
 
 ```bash
-dart pub global activate archgen
+dart pub add archgen
 ```
 
 ## Usage

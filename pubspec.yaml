@@ -1,5 +1,5 @@
 name: archgen
-version: 0.1.0
+version: 0.1.1
 description: A CLI tool for generating clean project structures based on default, MVC, MVVM, or custom architectures.
 homepage: "https://nassim-fellah.vercel.app/"
 repository: https://github.com/ZuxxLo/archgen
